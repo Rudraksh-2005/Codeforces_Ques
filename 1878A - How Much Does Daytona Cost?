@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+     ios::sync_with_stdio(false);
+     cin.tie(NULL);
+     
+     
+     int t;
+     cin>>t;
+     
+     while(t--){
+          int n,k;
+          cin>>n>>k;
+          
+          vector<int>arr;
+          for(int i=0;i<n;i++){
+               int a;
+               cin>>a;
+               arr.push_back(a);
+          }
+          
+          unordered_map<int,int>mpp;
+          
+          for(int it=0;it<n;it++){
+               mpp[arr[it]]++;
+          }
+          
+          if(mpp.find(k)!=mpp.end())cout<<"yes"<<endl;
+          else{
+               cout<<"No"<<endl;
+          }
+          
+     }
+     return 0;
+}
