@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int t;
+    cin >> t;
+    
+    while(t--){
+        int n, m;
+        cin >> n >> m;
+        
+        string x, y;
+        cin >> x >> y;
+        
+        int cnt = 0;
+        
+        if(x.find(y) != string::npos){
+            cout << 0 << endl;
+            continue;
+        }
+        
+        // Keep doubling until x is large enough
+        while(x.size() < y.size()){
+            x += x;
+            cnt++;
+        }
+        
+        // Check after reaching required size
+        if(x.find(y) != string::npos){
+            cout << cnt << endl;
+            continue;
+        }
+        
+        // One extra doubling (important)
+        x += x;
+        cnt++;
+        
+        if(x.find(y) != string::npos){
+            cout << cnt << endl;
+        } else {
+            cout << -1 << endl;
+        }
+    }
+}
