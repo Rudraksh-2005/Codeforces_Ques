@@ -1,0 +1,36 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+	long long t;
+	cin >> t; // Read the number of test cases
+	while (t--)
+	{
+		long long a, b;
+		cin >> a >> b; // Read the values of a and b for each test case
+ 
+		// Ensure a is the larger number for simplicity
+		if (b > a)
+			swap(a, b);
+ 
+		// If a and b are equal, the excitement is infinite, so output 0 0
+		if (a == b)
+			cout << 0 << " " << 0 << endl;
+		else
+		{
+			// Calculate the difference, which is the gcd when a != b
+			long long gcd = a - b;
+ 
+			// Calculate the minimum number of moves to achieve maximum excitement
+			// Either increase or decrease to the nearest multiple of gcd
+			long long moves = min(b % gcd, gcd - b % gcd);
+ 
+			// Output the maximum excitement and the minimum moves required
+			cout << gcd << " " << moves << endl;
+		}
+	}
+	return 0;
+}
+ 
